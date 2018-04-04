@@ -15,8 +15,9 @@ class CdownForm extends Component {
     }
 
     handleChange(date) {
-
-        alert(date);
+        this.setState({
+            startDate: date
+        })
     }
 
     render() {
