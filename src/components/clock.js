@@ -5,16 +5,40 @@ import React, { Component } from 'react';
         constructor(props) {
             super(props)
 
+            this.getTimeRemaining = this.getTimeRemaining.bind(this);
+
             this.state = {
-                timeRemaining: {}
+                timeRemaining: this.getTimeRemaining(this.props.countdownFormState.startDate.toString())
             }
         }
 
-       
+       getTimeRemaining(countdown) {
+            var cdown = new Date(countdown);
+            let today = new Date();
+
+            var distance = cdown.getTime() - today.getTime();
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            
+            return {
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            }
+       }
+
+       componentWillMount() {
+             
+       }
 
         render() {
             const data = this.state.timeRemaining
-
+            console.log('rendering')
             return (
                 <div>
                     <div>Days {data.days} </div>
@@ -24,10 +48,6 @@ import React, { Component } from 'react';
                 </div>
             )
         }
-         componentDidMount() {
-             this.countdown = this.props.countdownFormState.startDate.toString();
-             alert(this.countdown);
-         }
 
     }
 
