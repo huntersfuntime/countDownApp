@@ -5,10 +5,12 @@ import React, { Component } from 'react';
         constructor(props) {
             super(props)
 
+            this.timer = 0;
+            this.countdown = props.countdownFormState.startDate.toString();
             this.getTimeRemaining = this.getTimeRemaining.bind(this);
 
             this.state = {
-                timeRemaining: this.getTimeRemaining(this.props.countdownFormState.startDate.toString())
+                timeRemaining: this.getTimeRemaining(props.countdownFormState.startDate.toString())
             }
         }
 
@@ -23,7 +25,7 @@ import React, { Component } from 'react';
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
-            
+           
             return {
                 'days': days,
                 'hours': hours,
@@ -32,13 +34,15 @@ import React, { Component } from 'react';
             }
        }
 
-       componentWillMount() {
-             
-       }
+       componentDidMount () {
+                 this.timer = setInterval(() => {
+                     const timeRemaining = this.getTimeRemaining(this.countdown)
+                     this.setState({ timeRemaining: timeRemaining })
+                 }, 1000);
+             }
 
         render() {
             const data = this.state.timeRemaining
-            console.log('rendering')
             return (
                 <div>
                     <div>Days {data.days} </div>
