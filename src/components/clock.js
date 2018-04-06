@@ -29,18 +29,18 @@ import React, { Component } from 'react';
 
                 cdown.setFullYear(today.getFullYear() + 1);
             }
-            else if (downDay < currentDay) {
+            else if(downMonth == currentMonth) {
                 const downDay = cdown.getDate();
                 const currentDay = today.getDate();
-                cdown.setFullYear(today.getFullYear());
-            }
-            else if (downDay < currentDay ) {
+                if(downDay > currentDay) {
+                    cdown.setFullYear(today.getFullYear());
+                }
+                else if (downDay < currentDay) {
 
-                cdown.setFullYear(today.getFullYear() + 1);
+                    cdown.setFullYear(today.getFullYear() + 1);
+                }
             }
-
-            
-            cdown.setFullYear(today.getFullYear());
+             cdown.setFullYear(today.getFullYear());
 
 
 
