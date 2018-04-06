@@ -10,6 +10,7 @@ class CdownForm extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleGenerate = this.handleGenerate.bind(this);
+        this.handleChangeDate = this.handleChangeDate.bind(this);
 
         this.state = {
             startDate: moment(),
@@ -29,7 +30,11 @@ class CdownForm extends Component {
         });
     }
 
-    
+    handleChangeDate() {
+        this.setState({
+            formCompleted: false
+        });
+    }
 
     render() {
         return (
@@ -38,8 +43,9 @@ class CdownForm extends Component {
                     this.state.formCompleted ? 
                     <div>
                         <Clock countdownFormState={this.state}/>
+                        <a onClick={this.handleChangeDate}>Change date</a>
                     </div>
-                    :
+                :
                     <div> 
                         <h1> WINTER IS COMING </h1>
                         <DatePicker 

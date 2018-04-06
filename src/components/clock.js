@@ -14,6 +14,10 @@ import React, { Component } from 'react';
             }
         }
 
+        componentWillReceiveProps(nextProps) {
+            console.log(`next props: ${JSON.stringify(nextProps)}`);
+        }
+
        getTimeRemaining(countdown) {
             var cdown = new Date(countdown);
             let today = new Date();
@@ -40,7 +44,7 @@ import React, { Component } from 'react';
                     cdown.setFullYear(today.getFullYear() + 1);
                 }
             }
-             cdown.setFullYear(today.getFullYear());
+            
 
 
 
@@ -76,6 +80,10 @@ import React, { Component } from 'react';
                      this.setState({ timeRemaining: timeRemaining })
                  }, 1000);
              }
+
+        componentWillUnmount() {
+            clearInterval(this.timer);
+        }
 
         render() {
             const data = this.state.timeRemaining
