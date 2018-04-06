@@ -18,6 +18,32 @@ import React, { Component } from 'react';
             var cdown = new Date(countdown);
             let today = new Date();
 
+            const currentMonth = today.getMonth();
+            const downMonth = cdown.getMonth();
+
+            if(downMonth > currentMonth) {
+                
+                cdown.setFullYear(today.getFullYear());
+            } 
+            else if (downMonth < currentMonth) { 
+
+                cdown.setFullYear(today.getFullYear() + 1);
+            }
+            else if (downDay < currentDay) {
+                const downDay = cdown.getDate();
+                const currentDay = today.getDate();
+                cdown.setFullYear(today.getFullYear());
+            }
+            else if (downDay < currentDay ) {
+
+                cdown.setFullYear(today.getFullYear() + 1);
+            }
+
+            
+            cdown.setFullYear(today.getFullYear());
+
+
+
             var distance = cdown.getTime() - today.getTime();
 
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
