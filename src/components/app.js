@@ -7,11 +7,11 @@ export default class App extends Component {
         <header>
           <h1>Winter is coming!!!</h1>
           <div className="header__skew">
-              <div className="header__subskew">                
-                  <CdownForm />
+              <div className="header__subskew">                   
               </div>
           </div>
         </header>
+         <CdownForm />
       </div>
     );
   }

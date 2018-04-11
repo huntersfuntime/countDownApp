@@ -1,0 +1,11 @@
+.countdown {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--grey-primary);
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(14.4% 50%, 92% 50%, 85.6% 70%, 8% 70%);
+}
