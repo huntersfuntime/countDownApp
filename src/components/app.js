@@ -4,7 +4,14 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <CdownForm />
+        <header>
+          <h1>Winter is coming!!!</h1>
+          <div className="header__skew">
+              <div className="header__subskew">                
+                  <CdownForm />
+              </div>
+          </div>
+        </header>
       </div>
     );
   }

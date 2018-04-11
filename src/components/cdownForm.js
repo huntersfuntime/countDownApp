@@ -47,7 +47,6 @@ class CdownForm extends Component {
                     </div>
                 :
                     <div> 
-                        <h1> WINTER IS COMING </h1>
                         <DatePicker 
                                 selected={this.state.startDate}
                                 onChange={this.handleChange}
