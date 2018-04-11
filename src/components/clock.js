@@ -42,6 +42,8 @@ import React, { Component } from 'react';
                 else if (downDay < currentDay) {
 
                     cdown.setFullYear(today.getFullYear() + 1);
+                } else if (downDay == currentDay) {
+                    return 0;
                 }
             }
             
@@ -64,7 +66,7 @@ import React, { Component } from 'react';
             }
        }
 
-       getAge = function() {
+       getDate = function() {
             var cdown = new Date(this.countdown);
             let today = new Date();
 
@@ -89,15 +91,23 @@ import React, { Component } from 'react';
             const data = this.state.timeRemaining
             return (
                 <div>
+                {
+                    this.state.timeRemaining == 0 ?
+                        <h1>WINTER IS HERE!</h1>                  
+                    :
                     <div>
-                        <div>Days {data.days} </div>
-                        <div>HRS {data.hours} </div>
-                        <div>MINS {data.minutes} </div>
-                        <div>SECS {data.seconds} </div>
-                    </div>
-                    <div>
-                        {<h4>Remaining until you are {this.getAge()} </h4> }
-                    </div>
+                        <div>
+                            <div>Days {data.days} </div>
+                            <div>HRS {data.hours} </div>
+                            <div>MINS {data.minutes} </div>
+                            <div>SECS {data.seconds} </div>
+                        </div>
+                        <div>
+                            {<h4>Remaining until  {this.getDate()} </h4> }
+                        </div>
+                    </div>                 
+               
+                }
                 </div>
             )
         }
