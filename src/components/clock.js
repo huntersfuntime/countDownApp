@@ -8,6 +8,7 @@ import React, { Component } from 'react';
             this.timer = 0;
             this.countdown = props.countdownFormState.startDate.toString();
             this.getTimeRemaining = this.getTimeRemaining.bind(this);
+            this.noYear = new Date(this.countdown).getFullYear() == new Date().getFullYear();
 
             this.state = {
                 timeRemaining: this.getTimeRemaining(props.countdownFormState.startDate.toString())
@@ -87,6 +88,17 @@ import React, { Component } from 'react';
             clearInterval(this.timer);
         }
 
+        renderMessage = function() {
+            if(this.noYear) {
+                return (
+                    <h4>Until Winter is here!!</h4>
+                )
+            }
+            return (
+               <h4>Remaining until you are {this.getDate()}</h4> //This is if you want to change the countdown to a birthdate 
+            )
+        }.bind(this);
+
         render() {
             const data = this.state.timeRemaining
             return (
@@ -103,7 +115,7 @@ import React, { Component } from 'react';
                             <div>SECS {data.seconds} </div>
                         </div>
                         <div>
-                            {<h4>Remaining until  {this.getDate()} </h4> }
+                            {this.renderMessage()}
                         </div>
                     </div>                 
                
