@@ -1,0 +1,15 @@
+.countdown-container {
+    @include center-item($pull-x: -50%, $pull-y: -50%, $top: 50%, $left: 50%)
+}
+
+.date-picker-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-container {
+    width: 100vw;
+    height: 100vh;
+}
