@@ -106,18 +106,21 @@ import React, { Component } from 'react';
                 {
                     this.state.timeRemaining == 0 ?
                         <div className="message-container">
-                             <p className="message-container__title"> Renew your HBO subscription</p> 
+                             <p className="message-container__title"> The long wait is over</p> 
                              <p className="message-container__message"> WINTER IS HERE!!! </p>       
                         </div> 
 
                     :
                     <div>
+                      <div>
                         <ul className="countdown__clock">
-                            <li><p>Days {data.days}</p></li>
-                            <li><p>HRS {data.hours}</p></li>
-                            <li><p>MINS {data.minutes}</p></li>
-                            <li><p>SECS {data.seconds}</p></li>
+                            <li>DAYS<p>{data.days}</p></li>
+                            <li>HRS <p>{data.hours}</p></li>
+                            <li>MINS<p> {data.minutes}</p></li>
+                            <li>SECS<p>{data.seconds}</p></li>
                         </ul>
+
+                        </div>
                         <div>
                             {this.renderMessage()}
                         </div>

@@ -15,7 +15,7 @@
 .countdown__clock {
     @include clock-dimensions;
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     padding: 0;
     transform: translateX(-50%);
@@ -61,6 +61,22 @@
     left: 10%;
     bottom: 5%;
     width: 100%;
+}
+
+
+
+ul li {
+    list-style: none;
+    color: var(--minor-primary);
+    font-size: 22px;
+    font-family: var(--roboto-condesned);
+}
+
+ul p {
+    color: white;
+    font-size: 90px;
+    line-height: 115px;
+
 }
 
 
