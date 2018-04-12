@@ -105,7 +105,11 @@ import React, { Component } from 'react';
                 <div className="countdown">
                 {
                     this.state.timeRemaining == 0 ?
-                        <h1>WINTER IS HERE!</h1>                  
+                        <div className="message-container">
+                             <p className="message-container__title"> Renew your HBO subscription</p> 
+                             <p className="message-container__message"> WINTER IS HERE!!! </p>       
+                        </div> 
+
                     :
                     <div>
                         <ul className="countdown__clock">
