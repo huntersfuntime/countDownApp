@@ -102,17 +102,19 @@ import React, { Component } from 'react';
         render() {
             const data = this.state.timeRemaining
             return (
-                <div className="countdown">
+                <div>
                 {
                     this.state.timeRemaining == 0 ?
+                    <div className="countdown">
                         <div className="message-container">
                              <p className="message-container__title"> The long wait is over</p> 
                              <p className="message-container__message"> WINTER IS HERE!!! </p>       
-                        </div> 
+                        </div>
+                    </div>
 
                     :
                     <div>
-                      <div>
+                      <div className="countdown">
                         <ul className="countdown__clock">
                             <li>DAYS<p>{data.days}</p></li>
                             <li>HRS <p>{data.hours}</p></li>
@@ -121,7 +123,7 @@ import React, { Component } from 'react';
                         </ul>
 
                         </div>
-                        <div>
+                        <div className="until-container">
                             {this.renderMessage()}
                         </div>
                     </div>                 

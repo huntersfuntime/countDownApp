@@ -70,6 +70,9 @@ ul p {
 
 }
 
+.until-container {
+    @include center-item($top: 85%, $left: 50%);
+}
 
 
 
